@@ -1,7 +1,6 @@
 package stepDefinitions;
 
 import CommonTestMethods.BasePage;
-import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,7 +10,6 @@ public class LoginAutoSteps extends BasePage {
 
 
     public WebDriver driver;
-    public BasePage basePage;
 
     private final By userNameField = By.xpath("//input[@id='username']");
     private final By passWordField = By.xpath("//input[@id='password']");
