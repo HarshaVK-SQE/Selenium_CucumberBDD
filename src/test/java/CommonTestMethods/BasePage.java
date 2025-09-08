@@ -13,10 +13,10 @@ import java.time.Duration;
 
 public class BasePage {
 
-    public static WebDriver driver;
+    WebDriver driver;
 
-    public static void setDriver(WebDriver driver) {
-        BasePage.driver = driver;
+    public BasePage(WebDriver driver) {
+        this.driver = driver;
     }
 
     public WebElement findElement(By locator) {

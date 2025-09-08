@@ -7,4 +7,4 @@ Feature: Feature to test the Login Functionality
 
     Examples:
               | username| password |
-              | Admin   | admin123  |
+              | student   | Password123  |

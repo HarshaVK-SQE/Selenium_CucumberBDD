@@ -15,23 +15,26 @@ import io.cucumber.java.en.*;
 
 public class OrangeHRMLogin {
 
-    public static WebDriver driver;
-    public LoginPage loginPage;
-    String url = "https://opensource-demo.orangehrmlive.com/";
+    WebDriver driver = null;
+    LoginPage loginPage;
+    BasePage basePage;
+
+
+    String url = "https://practicetestautomation.com/practice-test-login/";
 
     @Given("user is on the orange hrm login page")
     public void user_is_on_the_orange_hrm_login_page() {
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
+            driver = new ChromeDriver();
+            basePage = new BasePage(driver);
 
-        BasePage.setDriver(driver);
-        loginPage = new LoginPage();
-
-        driver.get(url);
+            driver.manage().window().maximize();
+            driver.get(url);
     }
 
     @When("^user enters the valid (.*) and (.*)$")
     public void user_enters_the_valid_admin_and_admin123(String userName, String password) {
+
+
         loginPage.enterUserName(userName);
         loginPage.enterPassword(password);
     }

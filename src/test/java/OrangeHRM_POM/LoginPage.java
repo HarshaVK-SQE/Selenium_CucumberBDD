@@ -2,35 +2,42 @@ package OrangeHRM_POM;
 
 import CommonTestMethods.BasePage;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 
 
+public class LoginPage  {
 
-
-public class LoginPage extends BasePage {
-
-    private final By userNameField = By.xpath("//input[@placeholder='Username']");
-    private final By passwordField = By.xpath("//input[@placeholder='Password']");
-    private final By submitButton = By.xpath("//button[@type='submit']");
+    private final By userNameField = By.xpath("//input[@id='username']");
+    private final By passwordField = By.xpath("//input[@id='password']");
+    private final By submitButton = By.xpath("//button[@id='submit']");
+    WebDriver driver = null;
+    BasePage basePage;
 
     public void enterUserName(String userName) {
-        explicitWait_ElementVisibility(userNameField, 5);
-        setText(userNameField, userName);
+
+        basePage = new BasePage(driver);
+
+        basePage.explicitWait_ElementVisibility(userNameField, 15);
+        basePage.setText(userNameField, userName);
     }
 
     public void enterPassword(String password) {
-        explicitWait_ElementVisibility(passwordField, 5);
-        setText(passwordField, password);
+        basePage.explicitWait_ElementVisibility(passwordField, 15);
+        basePage.setText(passwordField, password);
     }
 
     public void clickSubmit() {
-        clickElement(submitButton);
+        basePage.clickElement(submitButton);
     }
 
     public void enterLoginDetails(String userName, String password) {
-        explicitWait_ElementVisibility(userNameField, 5);
-        explicitWait_ElementVisibility(passwordField, 5);
-        setText(userNameField, userName);
-        setText(passwordField, password);
-        clickElement(submitButton);
+
+        basePage = new BasePage(driver);
+
+        basePage.explicitWait_ElementVisibility(userNameField, 5);
+        basePage.explicitWait_ElementVisibility(passwordField, 5);
+        basePage.setText(userNameField, userName);
+        basePage.setText(passwordField, password);
+        basePage.clickElement(submitButton);
     }
 }
