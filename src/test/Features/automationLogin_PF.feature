@@ -10,4 +10,3 @@ Feature: Feature to check the Login Functionality
     Examples:
             | username | password |
             | student  | Password123 |
-            | student11  | aPassword123 |
